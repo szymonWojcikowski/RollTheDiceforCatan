@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+//less variables
+@small-font: 2.5vh;
+@bigger-font: 5vh;
+@el-border-col: rgb(52, 52, 54);
+@el-box-shadow: rgb(0, 0, 0) -1px 1px 0px 0px, rgb(0, 0, 0) 1px -1px 0px 0px, rgb(0, 0, 0) 1px 1px 0px 0px, rgb(0, 0, 0) -1px -1px 0px 0px;
+//less mixins
+.comment-font() {
+  .comment>span {
+    font-size: @small-font;
+    line-height: calc(@small-font*1.6);
+  }
+};
+.codepen-border() {
+	  border: 3px solid #343436;
+    border-radius: 2px;
+}
+
+
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  overflow: hidden;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  margin: 0;
+}
+
+:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+  outline-color: transparent;
+  outline-style: auto;
+  outline-width: 0px;
+}
+
+.wrapper {
+  background-color: #8fbc8f;
+  background-image: url(images/catan-view.jpg);
+  background-image: url(http://nivelul2.ro/wp-content/uploads/2014/04/settlers_of_catan_board.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dice-container {
+  height: 60vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dice {
+  height: 50vh;
+  width: 50vh;
+  border: 3px solid @el-border-col;
+  border-radius: 10%;
+  box-shadow: 10px 8px 6px rgba(0, 0, 0, 0.6);
+  transition: box-shadow 0.25s;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#dice {
+  background-color: #c4e7d4;
+}
+
+.dice>span {
+  font-size: 25vh;
+  align-items: center;
+  font-family: 'Abril Fatface', cursive;
+  margin: auto 0;
+  opacity: 1;
+  filter: blur(0px);
+  transition: opacity 0.35s, filter 0.25s;
+  text-shadow: 3px 3px 1px #8fbc8f;
+}
+
+.button-container {
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.roll {
+  height: 8vh;
+  width: 50vw;
+  background-color: #c3492c;
+  border: 3px solid @el-border-col;//#333
+  border-radius: 10px;
+	box-shadow: @el-box-shadow;
+  font-size: 4vh;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5em;
+  font-family: 'Kaushan Script', cursive;
+	.codepen-border();
+}
+
+.rolling {
+  -webkit-animation: RollTheDiceAnimation 1.5s 1 ease-out;
+  -moz-animation: RollTheDiceAnimation 1.5s 1 ease-out;
+  -o-animation: RollTheDiceAnimation 1.5s 1 ease-out;
+}
+
+@-webkit-keyframes RollTheDiceAnimation {
+  from {
+    -webkit-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+  }
+  to {
+    -webkit-transform: rotate(360deg) scale(1) skew(0deg) translate(0px);
+  }
+}
+
+@-moz-keyframes RollTheDiceAnimation {
+  from {
+    -moz-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+  }
+  to {
+    -moz-transform: rotate(360deg) scale(1) skew(0deg) translate(0px);
+  }
+}
+
+@-o-keyframes RollTheDiceAnimation {
+  from {
+    -o-transform: rotate(4deg) scale(1) skew(1deg) translate(10px);
+  }
+  to {
+    -o-transform: rotate(360deg) scale(1) skew(0deg) translate(0px);
+  }
+}
+
+.rolling {
+  box-shadow: 1px 1px 20px #666 !important;
+  transition: box-shadow 0.25s;
+}
+
+.rolling>span {
+  opacity: 0.2;
+  filter: blur(9px);
+  transition: opacity 1.5s;
+}
+
+.comments-container {
+  height: 20vh;
+  width: 100vw;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  // 
+  -moz-box-align: center;
+  align-items: center;
+ // position: relative;
+}
+
+.comments-container.hidden {
+  justify-content: end;
+}
+
+.comment {
+  height: 80%;
+  width: 40vw;
+  background-color: #c3492c;
+  border-left: 3px solid @el-border-col;
+  border-bottom: 3px solid @el-border-col;
+  border-top: 3px solid @el-border-col;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+	.codepen-border();
+  box-shadow: @el-box-shadow;
+  box-sizing: border-box;
+  display: inline-flex; //because of FF bug 10.1a https://github.com/philipwalton/flexbugs
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.1vh 3vw;
+  box-sizing: border-box;
+}
+
+.comment>span {
+  display: flex;
+  font-family: 'Kaushan Script', cursive;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #fff;
+}
+
+.comment-font;
+
+.hidden .comment {
+  visibility: hidden;
+}
+
+.comments-btn {
+  height: 80%;
+  width: 10vw;
+  background-color: #00a5cf;
+  border-left: 0px solid @el-border-col;
+  border-right: 3px solid @el-border-col;
+  border-bottom: 3px solid @el-border-col;
+  border-top: 3px solid @el-border-col;
+  box-shadow: @el-box-shadow;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+	.codepen-border();
+  box-sizing: border-box;
+  transition: border, right 0.2s;
+  font-size: 6vh;
+  line-height: 100%;
+  font-weight: 700;
+  padding: 0.1vh 3vw;
+  box-sizing: border-box;
+  display: inline-flex; //because of FF bug 10.1a https://github.com/philipwalton/flexbugs
+  flex-wrap: wrap;
+  justify-content: space-around;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+.hidden .comments-btn {
+  border-left: 3px solid @el-border-col;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  .codepen-border();
+  transition: border, right 0.2s;
+  -moz-box-align: center;
+  align-items: center;
+}
+
+/*---------------------------------*/
+
+.horizontal {
+  .dice-container {
+    width: 50vw;
+    height: 100vh;
+    order: -1;
+    .dice {
+      width: 70vh;
+      height: 70vh;
+    }
+  }
+  .comments-container {
+    width: 50vw;
+    height: 60vh;
+    justify-content: flex-start;
+    position: relative;
+    left: -10vw;
+    -moz-box-align: center;
+    align-items: center;
+    .comment {
+      height: 50%;
+      span {
+        font-size: @bigger-font;
+        line-height: calc(@bigger-font*1.8);
+      }
+    }
+    .comments-btn {
+      height: 50%;
+    }
+  }
+    .hidden {
+      .comments-btn{
+      position: relative;
+      left: 10vw;
+      display: flex;
+      align-items: center;
+      }
+    }
+  .button-container {
+    width: 50vw;
+    height: 40vh;
+    position: relative;
+    left: -10vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .roll {
+      height: 20vh;
+    }
+  }
+}
+
+//---------------
+.vertical {
+  .comments-container {
+    max-width: 100%;
+    min-width: 90%;
+    width: 100%;
+    .comment {
+      width: 70%;
+    }
+    .comments-btn {
+      width: 20%;
+    }
+  }
+  .button-container {
+    min-width: 90%;
+    width: 90%;
+    .roll {
+      width: 100%;
+    }
+  }
+}
